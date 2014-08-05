@@ -17,6 +17,10 @@
 @end
 
 @implementation webViewController
+- (IBAction)dismissTapped:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (IBAction)onBackButtonPressed:(id)sender
 {
@@ -32,7 +36,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
     self.webView.delegate = self;
     self.backButton.enabled = NO;
     self.backButton.alpha = .5;

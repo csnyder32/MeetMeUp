@@ -12,6 +12,7 @@
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property NSArray *meetups;
 @property NSDictionary *eventsDictionary;
+@property NSArray *searchResults;
 
 @property (weak, nonatomic) IBOutlet UITableView *meetUpTableView;
 
@@ -55,4 +56,7 @@
     NSDictionary *dictionary = [self.meetups objectAtIndex:selectedIndexPath.row];
     destinationViewController.dictionaryFromSourceView = dictionary;
 }
+
+
+
 @end

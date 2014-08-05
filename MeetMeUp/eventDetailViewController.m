@@ -30,8 +30,10 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    webViewController *vc = segue.destinationViewController;
+    UINavigationController *nav = segue.destinationViewController;
+    webViewController *vc = (webViewController *) nav.topViewController;
     vc.urlString = self.dictionaryFromSourceView[@"event_url"];
+    
     
 }
 

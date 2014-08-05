@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--View Controller - Meet Me Up-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
@@ -57,12 +57,37 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ygX-7n-x30"/>
+                    <navigationItem key="navigationItem" title="Meet Me Up" id="ygX-7n-x30"/>
                     <connections>
                         <outlet property="meetUpTableView" destination="ti3-MV-WFg" id="J9y-2x-zCu"/>
+                        <outlet property="searchDisplayController" destination="rPE-ly-aXw" id="Mlt-ZG-jqc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="paH-pJ-1Od">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="xyL-1f-exs"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="qDD-h8-6y3"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="o7c-tn-9vE"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="6gM-Az-vxC"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="uSe-mo-qep">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="ajW-nh-Fge"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="kTZ-tz-kDW"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="7UY-7A-hl7"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="Iv2-2L-cO2"/>
+                    </connections>
+                </searchDisplayController>
+                <searchDisplayController id="rPE-ly-aXw">
+                    <connections>
+                        <outlet property="delegate" destination="vXZ-lx-hvc" id="fRX-6J-Kpa"/>
+                        <outlet property="searchContentsController" destination="vXZ-lx-hvc" id="XZk-Yh-vbD"/>
+                        <outlet property="searchResultsDataSource" destination="vXZ-lx-hvc" id="hrO-c7-rsn"/>
+                        <outlet property="searchResultsDelegate" destination="vXZ-lx-hvc" id="Roa-Ed-6wy"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
             <point key="canvasLocation" x="664" y="3"/>
         </scene>
@@ -120,9 +145,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X3Y-xk-E3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="gOQ-nJ-nVa">
                     <connections>
-                        <segue destination="rZb-gI-KMc" kind="modal" id="BcG-wP-ICa"/>
+                        <segue destination="Cow-qI-t77" kind="modal" id="BcG-wP-ICa"/>
                     </connections>
                 </tapGestureRecognizer>
+                <tapGestureRecognizer id="fzS-Rz-qey"/>
             </objects>
             <point key="canvasLocation" x="1097" y="3"/>
         </scene>
@@ -171,7 +197,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4cW-zN-aje"/>
+                    <navigationItem key="navigationItem" id="4cW-zN-aje">
+                        <barButtonItem key="rightBarButtonItem" title="Dismiss" id="kBW-JG-kOL">
+                            <connections>
+                                <action selector="dismissTapped:" destination="rZb-gI-KMc" id="LmK-Fy-Qhg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="backButton" destination="qJe-mG-liA" id="Mw0-MH-MaU"/>
                         <outlet property="forwardButton" destination="Lyl-JA-HGb" id="ij1-hr-p03"/>
@@ -181,7 +213,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SWe-mA-rlq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1652" y="3"/>
+            <point key="canvasLocation" x="2133" y="3"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1gA-u9-WUc">
@@ -200,6 +232,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OtM-d8-Z9U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="202" y="3"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6BN-Ta-mWy">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cow-qI-t77" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ejk-z1-muv">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rZb-gI-KMc" kind="relationship" relationship="rootViewController" id="h94-kT-Gcu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TeX-Za-kB5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1607" y="3"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

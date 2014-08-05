@@ -24,6 +24,7 @@
 		B126CC0C198FF6C70010E432 /* CheckMate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B126CC0B198FF6C70010E432 /* CheckMate.framework */; };
 		B126CC1219900DBD0010E432 /* eventDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B126CC1119900DBD0010E432 /* eventDetailViewController.m */; };
 		B14CA69C1990161E002C2DED /* webViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14CA69B1990161E002C2DED /* webViewController.m */; };
+		B14CA69F19905A43002C2DED /* commentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14CA69E19905A43002C2DED /* commentsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		B126CC1119900DBD0010E432 /* eventDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = eventDetailViewController.m; sourceTree = "<group>"; };
 		B14CA69A1990161E002C2DED /* webViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webViewController.h; sourceTree = "<group>"; };
 		B14CA69B1990161E002C2DED /* webViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webViewController.m; sourceTree = "<group>"; };
+		B14CA69D19905A43002C2DED /* commentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = commentsViewController.h; sourceTree = "<group>"; };
+		B14CA69E19905A43002C2DED /* commentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = commentsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				B126CBE5198FF6AC0010E432 /* AppDelegate.h */,
 				B126CBE6198FF6AC0010E432 /* AppDelegate.m */,
 				B126CBE8198FF6AC0010E432 /* Main.storyboard */,
+				B14CA69D19905A43002C2DED /* commentsViewController.h */,
+				B14CA69E19905A43002C2DED /* commentsViewController.m */,
 				B14CA69A1990161E002C2DED /* webViewController.h */,
 				B14CA69B1990161E002C2DED /* webViewController.m */,
 				B126CC1019900DBD0010E432 /* eventDetailViewController.h */,
@@ -267,6 +272,7 @@
 				B126CBE7198FF6AC0010E432 /* AppDelegate.m in Sources */,
 				B14CA69C1990161E002C2DED /* webViewController.m in Sources */,
 				B126CC1219900DBD0010E432 /* eventDetailViewController.m in Sources */,
+				B14CA69F19905A43002C2DED /* commentsViewController.m in Sources */,
 				B126CBE3198FF6AC0010E432 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
