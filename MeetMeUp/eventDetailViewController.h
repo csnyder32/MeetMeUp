@@ -11,5 +11,4 @@
 @interface eventDetailViewController : UIViewController
 @property NSDictionary *dictionaryFromSourceView;
 
-
 @end

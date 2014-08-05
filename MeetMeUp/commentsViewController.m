@@ -7,43 +7,51 @@
 //
 
 #import "commentsViewController.h"
+#import "eventDetailViewController.h"
 
-@interface commentsViewController ()
+@interface commentsViewController ()<UITableViewDataSource, UITableViewDelegate>
+
+@property (weak, nonatomic) IBOutlet UITableView *commentTableView;
+@property NSArray *commentsArray;
+@property NSDictionary *commentsDictionary;
 
 @end
 
 @implementation commentsViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
+    NSURL *url = [NSURL URLWithString:@"https://api.meetup.com/2/open_events.json?zip=60604&text=mobile&time=,1w&key=640433f6272a63b6c12c19615e19"];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError)
+     {
+         self.commentsDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
 
-- (void)didReceiveMemoryWarning
+         self.commentsArray = [self.commentsDictionary objectForKey:@"results"];
+
+         [self.commentTableView reloadData];
+         NSLog(@"%@", self.commentsArray);
+         
+     }];
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    NSDictionary *comments = [self.commentsArray objectAtIndex:indexPath.row];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"myCell"];
+    cell.textLabel.text =comments [@"comment"];
+    cell.detailTextLabel.text = comments [@"member_id"];
+    return  cell;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return  self.commentsArray.count;
 }
-*/
+
+- (IBAction)onDismissTap:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+
+}
 
 @end

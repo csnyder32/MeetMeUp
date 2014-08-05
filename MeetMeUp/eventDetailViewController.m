@@ -8,6 +8,7 @@
 
 #import "eventDetailViewController.h"
 #import "webViewController.h"
+#import "commentsViewController.h"
 
 @interface eventDetailViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *rsvpLabel;
@@ -30,11 +31,17 @@
 }
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    UINavigationController *nav = segue.destinationViewController;
-    webViewController *vc = (webViewController *) nav.topViewController;
-    vc.urlString = self.dictionaryFromSourceView[@"event_url"];
+    if ([segue.identifier isEqualToString:@"websiteSegue"])
+    {
+        UINavigationController *nav = segue.destinationViewController;
+        webViewController *vc = (webViewController *) nav.topViewController;
+        vc.urlString = self.dictionaryFromSourceView[@"event_url"];
+    }else ([segue.identifier isEqualToString:@"commentSegue"]);
     
     
 }
-
+-(IBAction)unWindAndBookIt:(UIStoryboardSegue *)sender
+{
+    
+}
 @end

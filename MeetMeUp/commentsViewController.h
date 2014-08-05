@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "eventDetailViewController.h"
 
 @interface commentsViewController : UIViewController
 

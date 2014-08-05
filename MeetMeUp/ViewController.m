@@ -12,8 +12,6 @@
 @interface ViewController ()<UITableViewDataSource, UITableViewDelegate>
 @property NSArray *meetups;
 @property NSDictionary *eventsDictionary;
-@property NSArray *searchResults;
-
 @property (weak, nonatomic) IBOutlet UITableView *meetUpTableView;
 
 @end
@@ -30,11 +28,11 @@
         self.eventsDictionary = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&connectionError];
 
         self.meetups = [self.eventsDictionary objectForKey:@"results"];
+
         [self.meetUpTableView reloadData];
         NSLog(@"%@", self.meetups);
         
     }];
-
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -56,7 +54,5 @@
     NSDictionary *dictionary = [self.meetups objectAtIndex:selectedIndexPath.row];
     destinationViewController.dictionaryFromSourceView = dictionary;
 }
-
-
 
 @end
